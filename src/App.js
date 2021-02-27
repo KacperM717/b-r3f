@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { Canvas} from "react-three-fiber";
+import Boxxy from './Boxxy';
+import Controls from './Controls';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Canvas>
+        <Boxxy colorIn={"rgb(30,30,30)"} colorOut={"rgb(60,20,100)"} />
+        <ambientLight args={[0xf04040]} />
+        <directionalLight args={[0xffffff, 0.5]} position={[0,5,10]}/>
+        <Controls />
+      </Canvas>
     </div>
   );
 }
